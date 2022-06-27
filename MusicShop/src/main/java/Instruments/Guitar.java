@@ -1,6 +1,8 @@
 package Instruments;
 
-public class Guitar extends Instrument implements IPlay{
+import Shop.ISell;
+
+public class Guitar extends Instrument implements IPlay, ISell {
 
     private static final String sound = "Wowwww";
     private String model;

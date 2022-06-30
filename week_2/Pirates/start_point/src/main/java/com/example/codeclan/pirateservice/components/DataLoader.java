@@ -9,9 +9,11 @@ import com.example.codeclan.pirateservice.repository.ShipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@Component
+@Profile("!test") //Run everytime Except for tests
+//@Component //Comment this out if you don't want the seed loader to run every time.
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -29,6 +31,13 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
+
+        raidRepository.deleteAll();
+        pirateRepository.deleteAll();
+        shipRepository.deleteAll();
+
+
+
         Ship dutchman = new Ship("The Flying Dutchman");
         shipRepository.save(dutchman);
 

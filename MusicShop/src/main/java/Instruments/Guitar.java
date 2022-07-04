@@ -2,7 +2,7 @@ package Instruments;
 
 import Shop.ISell;
 
-public class Guitar extends Instrument implements IPlay, ISell {
+public class Guitar extends Instrument implements IPlay{
 
     private static final String sound = "Wowwww";
     private String model;
@@ -31,10 +31,6 @@ public class Guitar extends Instrument implements IPlay, ISell {
 
     public String play(String sound){
         return sound;
-    }
-
-    public double calculateMarkup(double selling, double buying){
-        return selling - buying;
     }
 
 }

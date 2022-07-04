@@ -1,6 +1,8 @@
 package Instruments;
 
-public abstract class Instrument{
+import Shop.ISell;
+
+public abstract class Instrument implements ISell {
 
     private double purchasePrice;
     private double salePrice;
@@ -43,4 +45,9 @@ public abstract class Instrument{
     public String getSound() {
         return sound;
     }
+
+    public double calculateMarkup(double selling, double buying){
+        return selling - buying;
+    }
+
 }
